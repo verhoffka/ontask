@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<table class="ui striped table">
+			<thead>
+				<tr>
+					<th>Project</th>
+					<th>Aldea</th>
+					<th>Charge Number</th>
+					<th>Number of Open Tasks</th>
+				</tr>
+			<tbody>
+
+			<tbody>
+			<% for (var i = 0; i < projects.length; i++) { %>
+				<tr>
+					<td><a href="<%= config.suburl %>/projects/<%= projects [i]._id %>"><%= projects [i].name %></a></td>
+					<td><%= projects [i].project_num %></td>
+					<td><%= projects [i].charge_num %></td>
+					<td></td>
+				</tr>
+			<% } %>
+			</tbody>
+		</table>
+		
+		<a class="ui button" href="<%= config.suburl %>/projects/new">New Project</a>
+	</div>
+<% include ./partials/footer %>

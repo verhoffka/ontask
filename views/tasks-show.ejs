@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui list">
+			<div class="item">
+				<div class="header">Name: </div>
+				<%= task.name %>
+			</div>
+
+			<div class="item">
+				<div class="header">Description: </div>
+				<%= task.description %>
+			</div>
+
+			<div class="item">
+				<div class="header">Context: </div>
+				<%= task.context.name %>
+			</div>
+
+			<div class="item">
+				<div class="header">Project: </div>
+				<%= task.project.name %>
+			</div>
+		</div>
+
+		<a class="ui button" href="<%= config.suburl %>/tasks/<%= task._id %>/edit">Edit</a>
+	</div>
+<% include ./partials/footer %>

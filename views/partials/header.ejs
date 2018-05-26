@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.css">
+	<style>
+	.container.main {
+		margin-top: 7.0em;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="ui fixed inverted menu huge">
+		<div class="ui container">
+			<a class="item" href="<%= config.suburl %>/contexts">Contexts</a>
+			<div class="item">
+				<a class="item borderless" href="<%= config.suburl %>/tasks">Tasks</a>
+				<a class="item borderless" href="<%= config.suburl %>/tasks/new"><i class="plus icon"></i></a>
+			</div>
+			<div class="item">
+				<a class="item borderless" href="<%= config.suburl %>/projects">Projects</a>
+				<a class="item borderless" href="<%= config.suburl %>/projects/new"><i class="plus icon"></i></a>
+			</div>
+		</div>
+	</div>

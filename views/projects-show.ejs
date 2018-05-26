@@ -1,0 +1,47 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui list">
+			<div class="ui huge header">Project <%= project.name %></div>
+
+			<div class="item">
+				<div class="header">Description: </div>
+				<%= project.description %>
+			</div>
+
+			<div class="item">
+				<div class="header">Aldea: </div>
+				<%= project.project_num %>
+			</div>
+
+			<div class="item">
+				<div class="header">Charge Number: </div>
+				<%= project.charge_num %>
+			</div>
+
+			<div class="item">
+				<div class="header">Tasks</div>
+				<table class="ui striped table">
+					<thead>
+						<tr>
+							<th>Task</th>
+							<th>Context</th>
+							<th></th>
+						</tr>
+					<tbody>
+
+					<tbody>
+					<% for (var i = 0; i < tasks.length; i++) { %>
+						<tr>
+							<td><a href="<%= config.suburl %>/tasks/<%= tasks [i]._id %>"><%= tasks [i].name %></a></td>
+							<td><%= tasks [i].context.name %></td>
+							<td><a href="<%= config.suburl %>/tasks/<%= tasks [i]._id %>/complete">Mark Complete</a></td>
+						</tr>
+					<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<a class="ui button" href="<%= config.suburl %>/projects/<%= project._id %>/edit">Edit Project</a>
+	</div>
+<% include ./partials/footer %>

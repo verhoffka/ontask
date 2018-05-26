@@ -1,0 +1,19 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui huge header">Add New Context</div>
+
+		<form class="ui form" action="<%= config.suburl %>/contexts" method="POST">
+			<div class="field">
+				<label>Name</label>
+				<input type="text" name="context[name]" placeholder="Context Name">
+			</div>
+
+			<div class="field">
+				<label>Description</label>
+				<textarea name="context[description]" placeholder="Context Description"></textarea>
+			</div>
+
+			<input class="ui basic button" type="submit">
+		</form>
+	</div>
+<% include ./partials/footer %>

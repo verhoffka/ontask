@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui huge header">Edit Context</div>
+
+		<form class="ui form" action="<%= config.suburl %>/contexts/<%= context._id %>?_method=PUT" method="POST">
+			<div class="field">
+				<label>Name</label>
+				<input type="text" name="context[name]" value="<%= context.name %>">
+			</div>
+
+			<div class="field">
+				<label>Description</label>
+				<textarea name="context[description]"><%= context.description %></textarea>
+			</div>
+
+			<input class="ui basic button" type="submit" value="Update">
+		</form>
+
+		<form action="<%= config.suburl %>/contexts/<%= context._id %>?_method=DELETE" method="POST">
+			<div class="form-element">
+				<button class="ui red basic button">Delete Context</button>
+			</div>
+		</form>
+	</div>
+<% include ./partials/footer %>

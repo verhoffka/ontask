@@ -1,0 +1,9 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+	<% for (var i = 0; i < contexts.length; i++) { %>
+		<p><a href="<%= config.suburl %>/contexts/<%= contexts [i]._id %>"><%= contexts [i].name %></a></p>
+	<% } %>
+
+		<a class="ui button" href="<%= config.suburl %>/contexts/new">New Context</a>
+	</div>
+<% include ./partials/footer %>

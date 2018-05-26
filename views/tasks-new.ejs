@@ -1,0 +1,53 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui huge header">Add New Task</div>
+
+		<form class="ui form action=" action="<%= config.suburl %>/tasks" method="POST">
+			<div class="field">
+				<label>Name</label>
+				<input type="text" name="task[name]" placeholder="name">
+			</div>
+
+			<div class="field">
+				<label>Description</label>
+				<textarea name="task[description]"></textarea>
+			</div>
+
+			<div class="field">
+				<label>Context</label>
+				<select name="task[context]">
+				<% for (var i = 0; i < contexts.length; i++) { 
+					if (user.defaultContext.equals (contexts [i]._id)) {
+						%>
+						<option value="<%= contexts [i]._id %>" selected><%= contexts [i].name %></option>
+						<% 
+					} else {
+						%>
+						<option value="<%= contexts [i]._id %>"><%= contexts [i].name %></option>
+						<%
+					}  
+				} %>
+				</select>
+			</div>
+
+			<div class="field">
+				<label>Project</label>
+				<select name="task[project]">
+				<% for (var i = 0; i < projects.length; i++) { 
+					if (user.defaultProject.equals (projects [i]._id)) {
+						%>
+						<option value="<%= projects [i]._id %>" selected><%= projects [i].name %></option>
+						<% 
+					} else {
+						%>
+						<option value="<%= projects [i]._id %>"><%= projects [i].name %></option>
+						<%
+					}  
+				} %>
+				</select>
+			</div>
+
+			<input class="ui basic button" type="submit" value="Submit">
+		</form>
+	</div>
+<% include ./partials/footer %>

@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<table class="ui striped table">
+			<thead>
+				<tr>
+					<th>Task</th>
+					<th>Context</th>
+					<th>Project</th>
+					<th></th>
+				</tr>
+			<tbody>
+
+			<tbody>
+			<% for (var i = 0; i < tasks.length; i++) { %>
+				<tr>
+					<td><a href="<%= config.suburl %>/tasks/<%= tasks [i]._id %>"><%= tasks [i].name %></a></td>
+					<td><%= tasks [i].context.name %></td>
+					<td><%= tasks [i].project.name %></td>
+					<td><a href="<%= config.suburl %>/tasks/<%= tasks [i]._id %>/complete">Mark Complete</a></td>
+				</tr>
+			<% } %>
+			</tbody>
+		</table>
+
+		<a class="ui button" href="<%= config.suburl %>/tasks/new">New Task</a>
+	</div>
+<% include ./partials/footer %>

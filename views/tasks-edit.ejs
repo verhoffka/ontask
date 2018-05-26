@@ -1,0 +1,51 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui huge header">Edit Task <%= task.name %></div>
+
+		<form class="ui form" action="<%= config.suburl %>/tasks/<%= task._id %>?_method=PUT" method="POST">
+			<div class="field">
+				<label>Name</label>
+				<input type="text" name="task[name]" value="<%= task.name %>">
+			</div>
+
+			<div class="field">
+				<label>Description</label>
+				<textarea name="task[description]"><%= task.description %></textarea>
+			</div>
+
+			<div class="field">
+				<label>Context</label>
+				<select name="task[context]">
+				<% for (var i = 0; i < contexts.length; i++) { %>
+					<% if (task.context._id.toString () === contexts [i]._id.toString ()) { %>
+					<option value="<%= contexts [i]._id %>" selected><%= contexts [i].name %></option>
+					<% } else { %>
+					<option value="<%= contexts [i]._id %>"><%= contexts [i].name %></option>
+					<% } %>
+				<% } %>
+				</select>
+			</div>
+
+			<div class="field">
+				<label>Project</label>
+				<select name="task[project]">
+				<% for (var i = 0; i < projects.length; i++) { %>
+					<% if (task.project._id.toString () === projects [i]._id.toString ()) { %>
+					<option value="<%= projects [i]._id %>" selected><%= projects [i].name %></option>
+					<% } else { %>
+					<option value="<%= projects [i]._id %>"><%= projects [i].name %></option>
+					<% } %>
+				<% } %>
+				</select>
+			</div>
+
+			<input class="ui basic button" type="submit" value="Update Task">
+		</form>
+
+		<form action="<%= config.suburl %>/tasks/<%= task._id %>?_method=DELETE" method="POST">
+			<div class="form-element">
+				<button class="ui red basic button">Delete Task</button>
+			</div>
+		</form>
+	</div>
+<% include ./partials/footer %>

@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui huge header">Add New Project</div>
+
+		<form class="ui form action=" action="<%= config.suburl %>/projects" method="POST">
+			<div class="field">
+				<label>Name</label>
+				<input type="text" name="project[name]" placeholder="name">
+			</div>
+
+			<div class="field">
+				<label>Description</label>
+				<textarea name="project[description]"></textarea>
+			</div>
+
+			<div class="field">
+				<label>Aldea</label>
+				<input type="text" name="project[projNum]" placeholder="name">
+			</div>
+
+			<div class="field">
+				<label>Charge Number</label>
+				<input type="text" name="project[chargeNum]" placeholder="name">
+			</div>
+
+			<input class="ui basic button" type="submit" value="Submit">
+		</form>
+	</div>
+<% include ./partials/footer %>

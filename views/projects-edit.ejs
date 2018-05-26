@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+	<div class="ui text container main">
+		<div class="ui huge header">Edit Project <%= project.name %></div>
+
+		<form class="ui form action=" action="<%= config.suburl %>/projects/<%= project._id %>?_method=PUT" method="POST">
+			<div class="field">
+				<label>Name</label>
+				<input type="text" name="project[name]" value="<%= project.name %>">
+			</div>
+
+			<div class="field">
+				<label>Description</label>
+				<textarea name="project[description]"><%= project.description %></textarea>
+			</div>
+
+			<div class="field">
+				<label>Aldea</label>
+				<input type="text" name="project[project_num]" value="<%= project.project_num %>">
+			</div>
+
+			<div class="field">
+				<label>Charge Number</label>
+				<input type="text" name="project[charge_num]" value="<%= project.charge_num %>">
+			</div>
+
+			<input class="ui basic button" type="submit" value="Update">
+		</form>
+
+		<a class="ui basic green button" href="<%= config.suburl %>/projects/<%= project._id %>/complete">Mark Complete</a>
+
+		<form action="<%= config.suburl %>/projects/<%= project._id %>?_method=DELETE" method="POST">
+			<div class="form-element">
+				<button class="ui red basic button">Delete Project</button>
+			</div>
+		</form>
+	</div>
+<% include ./partials/footer %>
