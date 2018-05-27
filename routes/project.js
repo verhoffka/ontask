@@ -60,7 +60,7 @@ router.get ("/:id", isLoggedIn, function (req, res){
 		if (err) {
 			res.render ("whoops", {error: err});
 		} else {
-			Task.find ({project: req.params.id}).populate ("context").exec (function (err, projectTasks) {
+			Task.find ({project: req.params.id, status: "Not Complete"}).populate ("context").exec (function (err, projectTasks) {
 				if (err) {
 					res.render ("whoops", {error: err});
 				} else {
